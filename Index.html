@@ -1,0 +1,254 @@
+```html
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyễn Minh Tuấn | Frontend Developer & UI/UX Designer</title>
+    <!-- Tải Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tải Font Inter từ Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tải Font Awesome cho các biểu tượng -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Cấu hình Tailwind CSS cho Dark Mode và Font -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased transition-colors duration-300 selection:bg-blue-600 selection:text-white">
+
+    <!-- Thanh điều hướng (Navbar) -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80 transition-colors duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo / Tên thương hiệu -->
+                <a href="#" class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
+                    MinhTuan<span class="text-slate-800 dark:text-white">.dev</span>
+                </a>
+
+                <!-- Menu Desktop -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#about" class="text-slate-600 hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400 transition-colors">Giới thiệu</a>
+                    <a href="#skills" class="text-slate-600 hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400 transition-colors">Kỹ năng</a>
+                    <a href="#experience" class="text-slate-600 hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400 transition-colors">Kinh nghiệm</a>
+                    <a href="#projects" class="text-slate-600 hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400 transition-colors">Dự án</a>
+                    <a href="#contact" class="text-slate-600 hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400 transition-colors">Liên hệ</a>
+                </nav>
+
+                <!-- Các nút hành động (Dark Mode & Mobile Menu) -->
+                <div class="flex items-center space-x-3">
+                    <!-- Nút chuyển đổi Sáng/Tối -->
+                    <button id="theme-toggle" aria-label="Chuyển đổi giao diện Sáng/Tối" class="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <i id="theme-toggle-dark-icon" class="fa-solid fa-moon hidden text-base"></i>
+                        <i id="theme-toggle-light-icon" class="fa-solid fa-sun hidden text-base text-amber-400"></i>
+                    </button>
+
+                    <!-- Nút mở menu trên Mobile -->
+                    <button id="mobile-menu-btn" aria-label="Mở menu" class="md:hidden p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-all">
+                        <i class="fa-solid fa-bars text-base"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Mobile thả xuống -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 pt-2 pb-4 space-y-1 shadow-lg">
+            <a href="#about" class="mobile-link block px-3 py-2.5 rounded-xl text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Giới thiệu</a>
+            <a href="#skills" class="mobile-link block px-3 py-2.5 rounded-xl text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Kỹ năng</a>
+            <a href="#experience" class="mobile-link block px-3 py-2.5 rounded-xl text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Kinh nghiệm</a>
+            <a href="#projects" class="mobile-link block px-3 py-2.5 rounded-xl text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Dự án</a>
+            <a href="#contact" class="mobile-link block px-3 py-2.5 rounded-xl text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Liên hệ</a>
+        </div>
+    </header>
+
+    <main class="pt-16">
+        <!-- 1. HERO SECTION -->
+        <section id="hero" class="relative overflow-hidden py-20 sm:py-28 lg:py-32">
+            <!-- Hiệu ứng nền trang trí nhẹ nhàng -->
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-96 bg-gradient-to-tr from-blue-500/10 via-indigo-500/10 to-purple-500/10 dark:from-blue-500/20 dark:via-indigo-500/10 dark:to-transparent blur-3xl -z-10 rounded-full"></div>
+
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
+                    <!-- Nội dung chữ bên trái -->
+                    <div class="flex-1 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 text-blue-700 dark:text-blue-300 text-xs sm:text-sm font-medium mb-6">
+                            <span class="relative flex h-2.5 w-2.5">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                            </span>
+                            Sẵn sàng cho các dự án mới & Freelance
+                        </div>
+
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight mb-4">
+                            Xin chào, tôi là <br class="hidden sm:block">
+                            <span class="bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 dark:from-blue-400 dark:via-indigo-400 dark:to-violet-400 bg-clip-text text-transparent">
+                                Nguyễn Minh Tuấn
+                            </span>
+                        </h1>
+
+                        <p class="text-lg sm:text-xl font-semibold text-slate-700 dark:text-slate-300 mb-4">
+                            Senior Frontend Developer & UI/UX Designer
+                        </p>
+
+                        <p class="text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed mb-8">
+                            Tôi đam mê xây dựng những giao diện web hiện đại, tối ưu trải nghiệm người dùng và hiệu năng vượt trội. Biến những ý tưởng phức tạp thành sản phẩm số tinh tế, dễ sử dụng.
+                        </p>
+
+                        <!-- Các nút CTA -->
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                            <a href="#contact" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 transition-all transform hover:-translate-y-0.5">
+                                <i class="fa-regular fa-paper-plane"></i>
+                                Liên hệ ngay
+                            </a>
+                            <button id="download-cv-btn" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-100 font-semibold border border-slate-200 dark:border-slate-700 shadow-sm transition-all transform hover:-translate-y-0.5">
+                                <i class="fa-solid fa-download text-blue-600 dark:text-blue-400"></i>
+                                Tải xuống CV (PDF)
+                            </button>
+                        </div>
+
+                        <!-- Liên kết mạng xã hội nhanh -->
+                        <div class="mt-8 flex items-center justify-center lg:justify-start gap-4">
+                            <span class="text-sm text-slate-500 dark:text-slate-400">Kết nối:</span>
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="w-10 h-10 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-500 transition-all">
+                                <i class="fa-brands fa-github text-lg"></i>
+                            </a>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="w-10 h-10 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-500 transition-all">
+                                <i class="fa-brands fa-linkedin-in text-lg"></i>
+                            </a>
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="w-10 h-10 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-500 transition-all">
+                                <i class="fa-brands fa-facebook-f text-lg"></i>
+                            </a>
+                            <a href="mailto:minhtuan.dev@example.com" aria-label="Email" class="w-10 h-10 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-500 transition-all">
+                                <i class="fa-regular fa-envelope text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Ảnh đại diện bên phải -->
+                    <div class="relative flex-shrink-0">
+                        <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-3xl p-2 bg-gradient-to-tr from-blue-600 via-indigo-500 to-purple-500 shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500">
+                            <img 
+                                src="https://placehold.co/400x400/1e293b/ffffff?text=Minh+Tuan" 
+                                onerror="this.onerror=null;this.src='https://placehold.co/400x400/2563eb/ffffff?text=Avatar';"
+                                alt="Ảnh đại diện Nguyễn Minh Tuấn" 
+                                class="w-full h-full object-cover rounded-2xl bg-slate-800 -rotate-3 hover:rotate-0 transition-transform duration-500"
+                            >
+                        </div>
+                        <!-- Huy hiệu nổi -->
+                        <div class="absolute -bottom-4 -left-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-4 py-3 rounded-2xl shadow-xl flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-lg">
+                                4+
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">Kinh nghiệm</p>
+                                <p class="text-sm font-bold text-slate-900 dark:text-white">Năm làm việc</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. GIỚI THIỆU BẢN THÂN (ABOUT ME) -->
+        <section id="about" class="py-20 bg-white dark:bg-slate-900/50 border-y border-slate-200/60 dark:border-slate-800/60">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-14">
+                    <span class="text-sm font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">Về tôi</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mt-2">Giới thiệu bản thân</h2>
+                    <div class="w-16 h-1 bg-blue-600 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    <div class="lg:col-span-7 space-y-5 text-slate-600 dark:text-slate-300 leading-relaxed">
+                        <h3 class="text-2xl font-bold text-slate-900 dark:text-white">
+                            Kết hợp giữa tư duy thẩm mỹ thiết kế và kỹ thuật lập trình hiện đại
+                        </h3>
+                        <p>
+                            Xin chào! Tôi là <strong>Nguyễn Minh Tuấn</strong>, hiện đang sinh sống và làm việc tại TP. Hồ Chí Minh. Với hơn 4 năm kinh nghiệm trong lĩnh vực phát triển web Frontend và thiết kế giao diện UI/UX, tôi luôn đặt trải nghiệm của người dùng cuối làm trọng tâm trong từng dòng code.
+                        </p>
+                        <p>
+                            Tôi có kinh nghiệm làm việc sâu rộng với hệ sinh thái JavaScript hiện đại (React, Next.js, TypeScript, Tailwind CSS) cũng như các công cụ thiết kế như Figma. Tôi thích giải quyết các bài toán tối ưu hiệu năng web, xây dựng Design System nhất quán và mang lại những hiệu ứng chuyển động mượt mà.
+                        </p>
+
+                        <!-- Thông tin cá nhân dạng lưới -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80">
+                                <span class="text-xs text-slate-500 dark:text-slate-400 block">Họ và tên</span>
+                                <span class="font-semibold text-slate-900 dark:text-white">Nguyễn Minh Tuấn</span>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80">
+                                <span class="text-xs text-slate-500 dark:text-slate-400 block">Email</span>
+                                <span class="font-semibold text-slate-900 dark:text-white">minhtuan.dev@example.com</span>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80">
+                                <span class="text-xs text-slate-500 dark:text-slate-400 block">Địa điểm</span>
+                                <span class="font-semibold text-slate-900 dark:text-white">TP. Hồ Chí Minh, Việt Nam</span>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80">
+                                <span class="text-xs text-slate-500 dark:text-slate-400 block">Ngôn ngữ</span>
+                                <span class="font-semibold text-slate-900 dark:text-white">Tiếng Việt, Tiếng Anh (IELTS 7.0)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Thống kê nổi bật bên phải -->
+                    <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+                        <div class="p-6 rounded-3xl bg-gradient-to-br from-blue-600 to-indigo-700 text-white shadow-lg">
+                            <i class="fa-solid fa-laptop-code text-3xl mb-4 opacity-80"></i>
+                            <div class="text-3xl sm:text-4xl font-extrabold mb-1">35+</div>
+                            <div class="text-sm text-blue-100">Dự án hoàn thành</div>
+                        </div>
+                        <div class="p-6 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
+                            <i class="fa-solid fa-users text-3xl text-blue-600 dark:text-blue-400 mb-4"></i>
+                            <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-1">20+</div>
+                            <div class="text-sm text-slate-500 dark:text-slate-400">Khách hàng hài lòng</div>
+                        </div>
+                        <div class="p-6 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
+                            <i class="fa-solid fa-award text-3xl text-indigo-600 dark:text-indigo-400 mb-4"></i>
+                            <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-1">05</div>
+                            <div class="text-sm text-slate-500 dark:text-slate-400">Chứng chỉ chuyên môn</div>
+                        </div>
+                        <div class="p-6 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
+                            <i class="fa-solid fa-mug-hot text-3xl text-amber-500 mb-4"></i>
+                            <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-1">999+</div>
+                            <div class="text-sm text-slate-500 dark:text-slate-400">Ly cà phê đã uống</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. KỸ NĂNG (SKILLS) -->
+        <section id="skills" class="py-20">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-14">
+                    <span class="text-sm font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">Năng lực chuyên môn</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mt-2">Kỹ năng & Công nghệ</h2>
+                    <div class="w-16 h-1 bg-blue-600 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                    <!-- Cột 1: Thanh tiến trình kỹ năng cốt lõi -->
+                    <div class="p-6 sm:p-8 r
